@@ -88,7 +88,7 @@ export class HTTPRequest {
     const method = io.connectSettings?.method || 'POST';
     const requestBody = stringifyBody ? JSON.stringify(interceptedBody) : interceptedBody;
     const requestInit: RequestInit = {method, body: requestBody, headers};
-    if (io.connectSettings.credentials) requestInit.credentials = io.connectSettings.credentials; 
+    if (io.connectSettings.credentials) requestInit.credentials = io.connectSettings.credentials;
     HTTPRequest.executePollRequest(io, url, requestInit, messages);
   }
 

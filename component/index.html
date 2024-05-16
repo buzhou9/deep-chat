@@ -27,6 +27,19 @@
     <deep-chat id="chat-element" demo="true" textInput='{"placeholder":{"text": "Welcome to the demo!"}}'></deep-chat>
     <script type="module">
       const chatElementRef = document.getElementById('chat-element');
+      chatElementRef.messageStyles = {
+        loading: {
+          innerContainer: {
+            width: '100%'
+          },
+          bubble: {
+            background: 'none',
+            width: '100%',
+            maxWidth: '100%'
+          },
+          content: '<div style="background: #00e0e0;color: #5d5d5d;text-align: center;">new loading ....</div>'
+        }
+      }
       // Setting value via a property (easiest way)
       chatElementRef.history = [
         {role: 'user', text: 'Hey, how are you today?'},

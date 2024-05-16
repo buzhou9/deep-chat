@@ -7,6 +7,7 @@ export interface MessageElementsStyles {
   innerContainer?: CustomStyle;
   bubble?: CustomStyle;
   media?: CustomStyle;
+  content?: string
 }
 
 export type MessageRoleStyles = {

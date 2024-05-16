@@ -247,11 +247,15 @@ export class Messages extends MessagesBase {
     const messageElements = this.createMessageElements('', MessageUtils.AI_ROLE);
     const {outerContainer, bubbleElement} = messageElements;
     bubbleElement.classList.add('loading-message-text');
-    const dotsElement = document.createElement('div');
-    dotsElement.classList.add('dots-flashing');
-    bubbleElement.appendChild(dotsElement);
+    if (this.messageStyles?.loading?.content) {
+      bubbleElement.innerHTML = this.messageStyles.loading.content;
+    } else {
+      const dotsElement = document.createElement('div');
+      dotsElement.classList.add('dots-flashing');
+      bubbleElement.appendChild(dotsElement);
+    }
     this.applyCustomStyles(messageElements, MessageUtils.AI_ROLE, false, this.messageStyles?.loading);
-    LoadingMessageDotsStyle.set(bubbleElement, this.messageStyles);
+    !this.messageStyles?.loading?.content && LoadingMessageDotsStyle.set(bubbleElement, this.messageStyles);
     this.elementRef.appendChild(outerContainer);
     ElementUtils.scrollToBottom(this.elementRef);
   }
